@@ -1,9 +1,7 @@
-# gamebot.py
+# ArchivistBot.py
 # Version 0.1
 # Purpose:
-# For the automatic running of discord games like mafia and secret hitler
-
-# secret hitler from http://www.secrethitler.com/ (CC license BY-NC-SA 4.0)
+# For the indexing and querying of text
 
 import discord
 import asyncio
@@ -13,6 +11,7 @@ import pickle
 import re
 from make_index import reverse_tree
 
+ADMIN_ID = "Put your ID here as a string"
 INPUT_DICT = {"tts": "TTS.pickle"}
 BOOL_FLAGS = ["-exact"]
 FLAGS = ["-chapter", "-context"]
@@ -156,7 +155,7 @@ class Archivebot(object):
                 await client.send_file(message.channel, 'Botishere.png')   
                 return
                 
-            elif message.content.lower() == '!archiveshutdown' and message.author.id == "192729741395099648":
+            elif message.content.lower() == '!archiveshutdown' and message.author.id == ADMIN_ID:
                 await client.logout()
                 return
 
